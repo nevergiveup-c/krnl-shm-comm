@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+    <Filter Include="Source Files\comm">
+      <UniqueIdentifier>{6cbd8387-896f-4acc-8b94-bbfa3588bf7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{a2ebbaa1-0ce9-46f5-a4d7-536a1dbb146f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\memory">
+      <UniqueIdentifier>{aee3ab67-cf7e-47e1-8a67-cb48ccd55265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\memory\patterns">
+      <UniqueIdentifier>{12cd21da-5764-4ff0-bcbb-e85330e883a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commThread">
+      <UniqueIdentifier>{fc8f117d-67f8-4c36-b22f-9fddbce23b85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commManager">
+      <UniqueIdentifier>{64c73161-fb24-43ae-8e7e-f7c85d4a0242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commSharedMemory">
+      <UniqueIdentifier>{5fea1f52-5695-454b-bc5f-2a1fe1044a41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commCommandDispatcher">
+      <UniqueIdentifier>{13236f72-b912-4f9e-81a2-1dab50622eca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commCommandDispatcher\handlers">
+      <UniqueIdentifier>{86dcfec6-f78b-4f39-a684-921c9475b663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commCommandDispatcher\handlers\readMemory">
+      <UniqueIdentifier>{c276e9ff-9d36-4156-bdae-6bce54b8a050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commCommandDispatcher\handlers\writeMemory">
+      <UniqueIdentifier>{9d5704ef-6b04-4097-b2e7-2d4609e60044}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commCommandDispatcher\handlers\allocateMemory">
+      <UniqueIdentifier>{938388b4-88e7-47d1-9474-04bac015be18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commCommandDispatcher\handlers\freeMemory">
+      <UniqueIdentifier>{dea66fd0-c071-46a4-81ff-1e13b4f67f8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\memory\new">
+      <UniqueIdentifier>{904dffd8-9103-42f1-8420-86dae0842bad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\symbols">
+      <UniqueIdentifier>{41eef71c-e33e-48b3-ba80-a1e566b2458a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commHider">
+      <UniqueIdentifier>{16ee928e-1658-4e18-bc73-6fa311d77290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commHider\commHiderBase">
+      <UniqueIdentifier>{d7bacb75-47b9-41d5-8c8f-a89e32820b4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commHider\commThreadHider">
+      <UniqueIdentifier>{fada24a4-6cee-4a86-958d-21bf9fa55afc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\comm\commHider\commShreadMemoryHider">
+      <UniqueIdentifier>{61d92031-bbd0-482e-afe5-6dc22fe052d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\memory\hendle">
+      <UniqueIdentifier>{774a4a93-893f-41c2-8af1-6c40e190a503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\stl">
+      <UniqueIdentifier>{b8851ae7-2216-4631-9be7-a81c03fb093e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ntarch">
+      <UniqueIdentifier>{7eb5b361-2e82-4505-83d3-7717d14aa17b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\self">
+      <UniqueIdentifier>{80f85ac6-62b4-4605-a7a9-35b5999ac829}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="patterns.cpp">
+      <Filter>Source Files\memory\patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="commThread.cpp">
+      <Filter>Source Files\comm\commThread</Filter>
+    </ClCompile>
+    <ClCompile Include="commManager.cpp">
+      <Filter>Source Files\comm\commManager</Filter>
+    </ClCompile>
+    <ClCompile Include="commSharedMemory.cpp">
+      <Filter>Source Files\comm\commSharedMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="commCommandDispatcher.cpp">
+      <Filter>Source Files\comm\commCommandDispatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="readMemoryHandler.cpp">
+      <Filter>Source Files\comm\commCommandDispatcher\handlers\readMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="allocateMemoryHandler.cpp">
+      <Filter>Source Files\comm\commCommandDispatcher\handlers\allocateMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="freeMemoryHandler.cpp">
+      <Filter>Source Files\comm\commCommandDispatcher\handlers\freeMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="writeMemoryHandler.cpp">
+      <Filter>Source Files\comm\commCommandDispatcher\handlers\writeMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="symbols.cpp">
+      <Filter>Source Files\symbols</Filter>
+    </ClCompile>
+    <ClCompile Include="new.cpp">
+      <Filter>Source Files\memory\new</Filter>
+    </ClCompile>
+    <ClCompile Include="commHiderBase.cpp">
+      <Filter>Source Files\comm\commHider\commHiderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="commThreadHider.cpp">
+      <Filter>Source Files\comm\commHider\commThreadHider</Filter>
+    </ClCompile>
+    <ClCompile Include="commShreadMemoryHider.cpp">
+      <Filter>Source Files\comm\commHider\commShreadMemoryHider</Filter>
+    </ClCompile>
+    <ClCompile Include="hendle.cpp">
+      <Filter>Source Files\memory\hendle</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="utils.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="patterns.h">
+      <Filter>Source Files\memory\patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="commThread.h">
+      <Filter>Source Files\comm\commThread</Filter>
+    </ClInclude>
+    <ClInclude Include="commManager.h">
+      <Filter>Source Files\comm\commManager</Filter>
+    </ClInclude>
+    <ClInclude Include="commSharedMemory.h">
+      <Filter>Source Files\comm\commSharedMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="commCommandDispatcher.h">
+      <Filter>Source Files\comm\commCommandDispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommCommandHandler.h">
+      <Filter>Source Files\comm\commCommandDispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="readMemoryHandler.h">
+      <Filter>Source Files\comm\commCommandDispatcher\handlers\readMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="allocateMemoryHandler.h">
+      <Filter>Source Files\comm\commCommandDispatcher\handlers\allocateMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="freeMemoryHandler.h">
+      <Filter>Source Files\comm\commCommandDispatcher\handlers\freeMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="writeMemoryHandler.h">
+      <Filter>Source Files\comm\commCommandDispatcher\handlers\writeMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="symbols.h">
+      <Filter>Source Files\symbols</Filter>
+    </ClInclude>
+    <ClInclude Include="new.h">
+      <Filter>Source Files\memory\new</Filter>
+    </ClInclude>
+    <ClInclude Include="commHiderBase.h">
+      <Filter>Source Files\comm\commHider\commHiderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="commThreadHider.h">
+      <Filter>Source Files\comm\commHider\commThreadHider</Filter>
+    </ClInclude>
+    <ClInclude Include="commShreadMemoryHider.h">
+      <Filter>Source Files\comm\commHider\commShreadMemoryHider</Filter>
+    </ClInclude>
+    <ClInclude Include="commHiderManager.h">
+      <Filter>Source Files\comm\commHider</Filter>
+    </ClInclude>
+    <ClInclude Include="handle.h">
+      <Filter>Source Files\memory\hendle</Filter>
+    </ClInclude>
+    <ClInclude Include="optional.h">
+      <Filter>Header Files\stl</Filter>
+    </ClInclude>
+    <ClInclude Include="pair.h">
+      <Filter>Header Files\stl</Filter>
+    </ClInclude>
+    <ClInclude Include="ntclasses.h">
+      <Filter>Header Files\ntarch</Filter>
+    </ClInclude>
+    <ClInclude Include="ntdecl.h">
+      <Filter>Header Files\ntarch</Filter>
+    </ClInclude>
+    <ClInclude Include="ntenums.h">
+      <Filter>Header Files\ntarch</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files\self</Filter>
+    </ClInclude>
+    <ClInclude Include="sharedSymbol.h">
+      <Filter>Source Files\symbols</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

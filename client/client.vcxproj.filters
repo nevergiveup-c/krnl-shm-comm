@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\client">
+      <UniqueIdentifier>{077f796f-a885-4733-83c7-35565ec06a47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\client\clientConnection">
+      <UniqueIdentifier>{cc6543f2-48c0-481a-b4d2-0fbceda114b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\client\clientCommProtocol">
+      <UniqueIdentifier>{b8afb41b-379d-48f4-85d8-55905db6a45f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\client\clientCommands">
+      <UniqueIdentifier>{ad4f6c3a-0a7d-49dc-8eed-355ed99e2c7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\client\clientCommands\commands">
+      <UniqueIdentifier>{fcc9571d-fb34-4102-9b37-0d4e852b461b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\client\clientCommands\commands\allocateMemory">
+      <UniqueIdentifier>{2423f5f3-532a-465a-b2d3-ca5326e58cc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\client\clientCommands\commands\freeMemory">
+      <UniqueIdentifier>{6ae9bb4c-93f4-4814-bc94-8a80fecb01a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\client\clientCommands\commands\readMemory">
+      <UniqueIdentifier>{5443f6ea-506d-4c82-947c-bf126fd5d24d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\client\clientCommands\commands\writeMemory">
+      <UniqueIdentifier>{53a9f16a-1379-41c7-b3e2-03613a58e22b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\symbol">
+      <UniqueIdentifier>{9aa86b36-7e30-4289-90d6-ac799813e260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\symbol\parser">
+      <UniqueIdentifier>{67615030-3404-4f7f-82aa-300a68a205c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\shared">
+      <UniqueIdentifier>{44e6c5a0-be01-4d8b-ba95-9e608680381a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="client.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="symbolHandler.cpp">
+      <Filter>Исходные файлы\symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="symbolParser.cpp">
+      <Filter>Исходные файлы\symbol\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="shared.cpp">
+      <Filter>Исходные файлы\shared</Filter>
+    </ClCompile>
+    <ClCompile Include="clientConnection.cpp">
+      <Filter>Исходные файлы\client\clientConnection</Filter>
+    </ClCompile>
+    <ClCompile Include="clientCommProtocol.cpp">
+      <Filter>Исходные файлы\client\clientCommProtocol</Filter>
+    </ClCompile>
+    <ClCompile Include="freeMemoryCommand.cpp">
+      <Filter>Исходные файлы\client\clientCommands\commands\freeMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="allocateMemoryCommand.cpp">
+      <Filter>Исходные файлы\client\clientCommands\commands\allocateMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="readMemoryCommand.cpp">
+      <Filter>Исходные файлы\client\clientCommands\commands\readMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="writeMemoryCommand.cpp">
+      <Filter>Исходные файлы\client\clientCommands\commands\writeMemory</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="driverClient.h">
+      <Filter>Исходные файлы\client</Filter>
+    </ClInclude>
+    <ClInclude Include="symbolHandler.h">
+      <Filter>Исходные файлы\symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="symbolParser.h">
+      <Filter>Исходные файлы\symbol\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="shared.hpp">
+      <Filter>Исходные файлы\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="clientConnection.h">
+      <Filter>Исходные файлы\client\clientConnection</Filter>
+    </ClInclude>
+    <ClInclude Include="clientCommProtocol.h">
+      <Filter>Исходные файлы\client\clientCommProtocol</Filter>
+    </ClInclude>
+    <ClInclude Include="clientCommands.h">
+      <Filter>Исходные файлы\client\clientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="ICilentCommnads.h">
+      <Filter>Исходные файлы\client\clientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="freeMemoryCommand.h">
+      <Filter>Исходные файлы\client\clientCommands\commands\freeMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="allocateMemoryCommand.h">
+      <Filter>Исходные файлы\client\clientCommands\commands\allocateMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="readMemoryCommand.h">
+      <Filter>Исходные файлы\client\clientCommands\commands\readMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="writeMemoryCommand.h">
+      <Filter>Исходные файлы\client\clientCommands\commands\writeMemory</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
