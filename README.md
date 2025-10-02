@@ -47,7 +47,7 @@ So, having the entire structure obtained via KD, we can highlight the fields imp
 - `InfoMask`: a bitmask for calculating offsets to optional object structures.
 - `Body`: The beginning of a structure unique to each object type (SECTION in our case)
 
-First of all, let's take a look at how the `InfoMask` field works. In the Windows kernel, there's a symbol `ObpInfoMaskToOffset` (an array of offsets) containing hardcoded information about offsets within the OBJECT_HEADER structure. Using an index and the bitmask, we can find out whether the object contains an optional structure we're interested in, for example: InfoMask & 0x02 - OBJECT_HEADER_NAME_INFO. To get the offset, we need to use the same AND operation to get an index in the array and get the value from the array at this index —  this will be our offset to the structure `ObpInfoMaskToOffset[InfoMask & 0x03]` —  offset to OBJECT_HEADER_NAME_INFO`, and then we subtract the obtained offset from objectHeader and get the beginning of the optional structure.
+First of all, let's take a look at how the `InfoMask` field works. In the Windows kernel, there's a symbol `ObpInfoMaskToOffset` (an array of offsets) containing hardcoded information about offsets within the OBJECT_HEADER structure. Using an index and the bitmask, we can find out whether the object contains an optional structure we're interested in, for example: InfoMask & 0x02 - OBJECT_HEADER_NAME_INFO. To get the offset, we need to use the same AND operation to get an index in the array and get the value from the array at this index —  this will be our offset to the structure `ObpInfoMaskToOffset[InfoMask & 0x03]` —  offset to OBJECT_HEADER_NAME_INFO, and then we subtract the obtained offset from objectHeader and get the beginning of the optional structure.
 
 
 Table of optional structures: (incomplete)
@@ -95,8 +95,7 @@ bool ClientConnection::connect()
 ## 1. Objects spoofing:
 
 ### 1.1 Spoofing OBJECT_HEADER fields
-Now we need to spoof several fields in the OBJECT_HEADER structure so that our section object becomes a symbolic link. A key part of this process is the decryption of `TypeIndex` in the `SymbolicLinkType` structure (OBJECT_TYPE).
-
+Now we need to spoof several fields in the OBJECT_HEADER structure so that our section object becomes a symbolic link. A key part of this process is encrypting the Index from the SymbolicLinkType structure (OBJECT_TYPE) to generate the correct `TypeIndex` value.
 
 ```cpp
 0: kd> dt nt!_OBJECT_TYPE
@@ -114,7 +113,7 @@ Now we need to spoof several fields in the OBJECT_HEADER structure so that our s
    +0x0c8 CallbackList     : _LIST_ENTRY
 ```
 
-It's quite simple and looks as follows: `ObHeaderCookie ^ ObjectType->Index ^ ((reinterpret_cast<ULONG64>(objectHeader) >> 8) & 0xFF)`. This decryption works for all object types.
+It's quite simple and looks as follows: `ObHeaderCookie ^ ObjectType->Index ^ ((reinterpret_cast<ULONG64>(objectHeader) >> 8) & 0xFF)`. This encryption works for all object types.
 
 ```cpp
 NTSTATUS CommSharedMemoryHider::spoofObject()
@@ -235,13 +234,9 @@ To fully mask our presence, we need to become familiar with several structures. 
    +0x010 HashValue        : Uint4B
 ```
 
-- `ChainLink`: односвязный список хорянщий следующую запись _OBJECT_DIRECTORY_ENTRY.
-- `Object`: поле, относящееся к _OBJECT_HEADER текущей записи.
-- `HashValue`: что-то вроде hash("name") текущей записи.
-
 - `ChainLink`: singly linked list storing the next _OBJECT_DIRECTORY_ENTRY entry.
 - `Object`: field relating to the _OBJECT_HEADER of the current entry.
-- `HashValue`: something like hash("name") of the current en
+- `HashValue`: something like hash("name") of the current entry
 
 **Bucket structure**:
 | Bucket Index | Chain Structure | Description |
@@ -381,6 +376,11 @@ NTSTATUS CommSharedMemoryHider::removeObjectFromDirectory()
 
 ### 3 Restoring Manipulations
 While browsing various forums in search of information about thread and memory hiding techniques, I often came across claims that unloading a driver after such manipulations is impossible. And i disagree with that. This project implements full restoration of hidden objects, threads and memory, allowing the driver’s execution to be safely stopped without triggering a BSOD (Blue Screen of Death).
+
+# Additional Resources
+[Geoff Chappell, Software Analyst (OBJECT_HEADER)](https://www.geoffchappell.com/studies/windows/km/ntoskrnl/inc/ntos/ob/object_header/index.htm)
+
+[A Light on Windows 10's “OBJECT_HEADER->TypeIndex”](https://medium.com/@ashabdalhalim/a-light-on-windows-10s-object-header-typeindex-value-e8f907e7073a)
 
 # Credits:
 [@KDmapper](https://github.com/TheCruZ/kdmapper)
