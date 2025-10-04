@@ -140,7 +140,7 @@
     <ClCompile Include="commThread.cpp" />
     <ClCompile Include="commThreadHider.cpp" />
     <ClCompile Include="freeMemoryHandler.cpp" />
-    <ClCompile Include="hendle.cpp" />
+    <ClCompile Include="handle.cpp" />
     <ClCompile Include="new.cpp" />
     <ClCompile Include="symbols.cpp" />
     <ClCompile Include="main.cpp" />

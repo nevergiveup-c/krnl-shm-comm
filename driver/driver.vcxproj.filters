@@ -74,9 +74,6 @@
     <Filter Include="Source Files\comm\commHider\commShreadMemoryHider">
       <UniqueIdentifier>{61d92031-bbd0-482e-afe5-6dc22fe052d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\memory\hendle">
-      <UniqueIdentifier>{774a4a93-893f-41c2-8af1-6c40e190a503}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\stl">
       <UniqueIdentifier>{b8851ae7-2216-4631-9be7-a81c03fb093e}</UniqueIdentifier>
     </Filter>
@@ -85,6 +82,9 @@
     </Filter>
     <Filter Include="Header Files\self">
       <UniqueIdentifier>{80f85ac6-62b4-4605-a7a9-35b5999ac829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\memory\handle">
+      <UniqueIdentifier>{774a4a93-893f-41c2-8af1-6c40e190a503}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -136,8 +136,8 @@
     <ClCompile Include="commShreadMemoryHider.cpp">
       <Filter>Source Files\comm\commHider\commShreadMemoryHider</Filter>
     </ClCompile>
-    <ClCompile Include="hendle.cpp">
-      <Filter>Source Files\memory\hendle</Filter>
+    <ClCompile Include="handle.cpp">
+      <Filter>Source Files\memory\handle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -193,7 +193,7 @@
       <Filter>Source Files\comm\commHider</Filter>
     </ClInclude>
     <ClInclude Include="handle.h">
-      <Filter>Source Files\memory\hendle</Filter>
+      <Filter>Source Files\memory\handle</Filter>
     </ClInclude>
     <ClInclude Include="optional.h">
       <Filter>Header Files\stl</Filter>
