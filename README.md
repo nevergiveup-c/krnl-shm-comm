@@ -1,14 +1,14 @@
 # krnl-shm-comm
 
-## Description:
+## Description
 The project is designed to demonstrate the concept of an attack on the Windows Object Manager subsystem using DKOM. By completely hiding or spoofing objects, it's possible to bypass static and dynamic object analysis.
 
 If we consider the project as a concept of hidden communication, it has critical flaws. One of the most significant problems is creating a system thread. Although the project demonstrates methods of hiding a system thread, when analyzing the scheduler we will see our thread evetually. It completely destroys our concept of "hidden communication", and is ABSOLUTELY not suitable for working in processes protected by a driver-based solution.
 
-## Disclaimer:
+## Disclaimer
 > All actions were carried out solely for the purpose of studying defensive systems and testing the functionality and effectiveness of the methods described. I strongly condemn any interference with someone else's process!
 
-# Proof of Concept:
+# Proof of Concept
 In this example, we will examine the process of replacing a section object (our shared memory) with a symbolic link, and all further operations will take place in this context. If you're interested in replacing it with some other object, you need to study its fields and its actual state (so that your object doesn't raise too much suspicion). First,  let’s break down the OBJECT_HEADER structure and how it’s organized.
 
 ```cpp
@@ -59,7 +59,7 @@ Table of optional structures: (incomplete)
 | `OBJECT_HEADER_QUOTA_INFO` | 0x08 | `ObpInfoMaskToOffset[3]` | Quota charges |
 | `OBJECT_HEADER_PROCESS_INFO` | 0x10 | `ObpInfoMaskToOffset[4]` | Exclusive process owner |
 
-### User-mode handle:
+### User-mode handle
 In order not to raise suspicion, we need to have the correct number of open handles for the object located in the `HandleCount` field. A symbolic link usually always has 1 handle open. Knowing this information, we must definitely close the handle in user mode (client). The object itself won't disappear at this moment, since cleanup only occurs when our `HandleCount`, `PointerCount` and `PermanentObject` fields are equal to 0, which naturally won't happen — there’s an open handle in the kernel at this moment, which means our counters won't be equal to 0.
 
 
@@ -92,7 +92,7 @@ bool ClientConnection::connect()
 }
 ```
 
-## 1. Objects spoofing:
+## 1. Objects spoofing
 
 ### 1.1 Spoofing OBJECT_HEADER fields
 Now we need to spoof several fields in the OBJECT_HEADER structure so that our section object becomes a symbolic link. A key part of this process is encrypting the Index from the SymbolicLinkType structure (OBJECT_TYPE) to generate the correct `TypeIndex` value.
@@ -204,13 +204,13 @@ NTSTATUS CommSharedMemoryHider::removeHandleFromObject()
 }
 ```
 
-### 1.3 Results:
+### 1.3 Results
 
 <p align="center">
   <img src="./images/image1.jpg" width="1200" height="600">
 </p>
 
-## 2. Unlinking objects:
+## 2. Unlinking objects
 To fully mask our presence, we need to become familiar with several structures. Along the way, let's highlight the relevant fields:
 
 ```cpp
@@ -238,7 +238,7 @@ To fully mask our presence, we need to become familiar with several structures. 
 - `Object`: field relating to the _OBJECT_HEADER of the current entry.
 - `HashValue`: something like hash("name") of the current entry
 
-**Bucket structure**:
+**Bucket structure**
 | Bucket Index | Chain Structure | Description |
 |--------------|-----------------|-------------|
 | `HashBuckets[0]` | Entry1 → Entry2 → Entry3 → nullptr | Chain of objects with same hash |
@@ -248,7 +248,7 @@ To fully mask our presence, we need to become familiar with several structures. 
 | ... | ... | ... |
 | `HashBuckets[36]` | EntryN → nullptr | Last bucket |
 
-### 2.1 Directory search:
+### 2.1 Directory search
 Now that we understand how the Object Manager stores its objects, we can implement a search for the desired directory. Note that to do this, we'll need the root directory, which can be obtained from `ObpRootDirectoryObject`.
 
 ```cpp
@@ -295,7 +295,7 @@ _OBJECT_DIRECTORY* CommSharedMemoryHider::findDirectory(const WCHAR* dirName)
 }
 ```
 
-### 2.2 Unlinking the object from Object Manager:
+### 2.2 Unlinking the object from Object Manager
 After obtaining the desired directory object (in my case it's `"\BaseNamedObjects"`), we need to repeat the same iteration to find our shared memory object for unlinking. 
 When the object is found and if it’s the first entry in the list, we simply replace the directory entry with the next item in the chain (chainLink->ChainLink). Otherwise, we relink the previous entry to skip over the removed one (prevLink->ChainLink = chainLink->ChainLink).
 
@@ -369,15 +369,15 @@ NTSTATUS CommSharedMemoryHider::removeObjectFromDirectory()
 
 ### 2.3 Repeating handle removing from [Objects spoofing](#12-removing-the-handle-from-the-kernel-space-handle-array)
 
-### 2.4 Results:
+### 2.4 Results
 <p align="center">
   <img src="./images/image2.jpg" width="1200" height="600">
 </p>
 
-### 3 Restoring Manipulations
+### 3 Restoring manipulations
 While browsing various forums in search of information about thread and memory hiding techniques, I often came across claims that unloading a driver after such manipulations is impossible. And i disagree with that. This project implements full restoration of hidden objects, threads and memory, allowing the driver’s execution to be safely stopped without triggering a BSOD (Blue Screen of Death).
 
-# Additional Resources
+# Additional resources
 [Geoff Chappell, Software Analyst (OBJECT_HEADER)](https://www.geoffchappell.com/studies/windows/km/ntoskrnl/inc/ntos/ob/object_header/index.htm)
 
 [A Light on Windows 10's “OBJECT_HEADER->TypeIndex”](https://medium.com/@ashabdalhalim/a-light-on-windows-10s-object-header-typeindex-value-e8f907e7073a)
